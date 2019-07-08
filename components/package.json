@@ -1,0 +1,39 @@
+{
+  "name": "components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Manuel Alcaraz Zambrano",
+  "license": "ISC",
+  "dependencies": {
+    "@material/button": "^2.1.1",
+    "@material/card": "^2.1.1",
+    "@material/drawer": "^2.1.1",
+    "@material/icon-button": "^3.0.0",
+    "@material/list": "^2.1.1",
+    "@material/ripple": "^2.1.1",
+    "@material/switch": "^2.1.1",
+    "@material/textfield": "^2.1.1",
+    "@material/theme": "^1.1.0",
+    "@material/top-app-bar": "^2.1.1",
+    "@material/typography": "^1.0.0",
+    "js-cookie": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.22.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.0",
+    "dart-sass": "^1.17.2",
+    "extract-loader": "^1.0.2",
+    "fibers": "^3.1.1",
+    "file-loader": "^1.1.11",
+    "sass-loader": "^7.1.0",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.4.3"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --progress",
+    "build": "webpack -p"
+  }
+}

@@ -1,0 +1,343 @@
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
+@import "@material/button/mdc-button";
+@import "@material/typography/mdc-typography";
+@import "@material/textfield/mdc-text-field";
+@import "@material/textfield/icon/mdc-text-field-icon";
+@import "@material/switch/mdc-switch";
+
+
+body {
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+
+.mdc-drawer-app-content {
+    flex: auto;
+    overflow: auto;
+    position: relative;
+}
+
+.mdc-drawer__content {
+    padding-left: 16px;
+}
+
+.main-content {
+    @include mdc-typography(body1);
+    overflow: auto;
+    height: 100%;
+}
+
+table.indextable, table.highlighttable {
+    overflow: auto;
+    display: block;
+}
+
+.documentwrapper {
+    padding-top: 64px;
+    margin-bottom: 64px;
+    
+    @media (min-width: 660px) {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 660px;
+    }
+    
+}
+
+.body {
+    padding: 8px;
+}
+
+.app-bar {
+    position: absolute;
+}
+
+ul.search {
+    padding: 0;
+    list-style: none;
+}
+
+ul.search li {
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 1em;
+    margin-bottom: 1em;
+    display: block;
+    overflow-x: auto;
+}
+
+ul.search li a {
+    text-decoration: none;
+}
+
+ul.search li a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    @include mdc-typography(headline1);
+    
+    font-size: 2.8rem;
+}
+
+h2 {
+    @include mdc-typography(headline2);
+    
+    font-size: 2.3rem;
+}
+
+h3 {
+    @include mdc-typography(headline3);
+    
+    font-size: 1.9rem;
+}
+
+h4 {
+    @include mdc-typography(headline4);
+    
+    font-size: 1.5rem;
+}
+
+p.centered {
+    text-align: center;
+}
+
+dd {
+    border-bottom: 1px solid #e0e0e0;
+    margin: 0;
+    padding-left: 3em;
+}
+
+dt {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 1em;
+}
+
+.tip, .warning, .note, div.deprecated, div.versionchanged, div.versionadded, div.seealso {
+    display: block;
+    color: #212124;
+    
+    border-radius: 4px;
+    margin: 2em 0;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+}
+
+.tip {
+    background: #E6F4EA;
+    border-left: 4px solid #137333;
+}
+
+.warning {
+    background: #FBE9E7;
+    border-left: 4px solid #ff5722;
+}
+
+.note, div.seealso {
+    background: #E1F5FE;
+    border-left: 4px solid #0288D1;
+}
+
+div.deprecated {
+    background: #ffebee;
+    border-left: 4px solid #e53935;
+}
+
+span.deprecated {
+    font-weight: bold;
+    font-style: normal!important;
+}
+
+div.versionchanged, div.versionadded {
+    background: #fafafa;
+    border-left: 4px solid #757575;
+}
+
+span.changed, span.versionmodified, span.added {
+    font-weight: bold;
+    font-style: normal!important;
+}
+
+.admonition-title {
+    font-weight: bold;
+}
+
+a {
+    color: #1a73e8;
+}
+
+a.headerlink {
+    display: none;
+}
+
+a.nostylea, a.nostylea:active, a.nostylea:visited, .mdc-list a {
+    text-decoration: none;
+    color: inherit!important;
+}
+
+.mdc-list li.toctree-l1, .mdc-list li.toctree-l2, .mdc-list li.toctree-l3 {
+    list-style: none;
+}
+
+a.reference:hover {
+    text-decoration: underline;
+}
+
+.mdc-list ul {
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+pre {
+    overflow: auto;
+    margin-bottom: 2px!important;
+    margin-top: 2px!important;
+    padding: 14px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+div.hightlightdefault {
+    max-width: 100%;
+}
+
+.highlight {    
+    background: none!important;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    padding: 2px;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+}
+
+/* Dark Theme */
+
+input[type=text].dark-theme {
+    color: white!important;
+}
+
+.mdc-text-field__input.dark-theme {
+    border-color: white!important;
+}
+
+::placeholder {
+    color: #aaa!important;
+}
+
+img.dark-theme::not(.logo) {
+    background: white;
+}
+
+span.nf.dark-theme {
+    color: #5182ff;
+}
+
+span.o.dark-theme {
+    color: #bbbbbb;
+}
+
+.tip.dark-theme, .warning.dark-theme, .note.dark-theme, div.deprecated.dark-theme, div.versionchanged.dark-theme, div.versionadded.dark-theme, div.seealso.dark-theme {
+    color: white;
+}
+
+.body.dark-theme, .main-content.dark-theme {
+    color: white!important;
+    background: #121212!important;
+}
+
+a.dark-theme {
+    color: #2196f3;
+}
+
+.tip.dark-theme {
+    background: #1B5E20;
+    border-left: 4px solid #137333;
+}
+
+.warning.dark-theme {
+    background: #BF360C;
+    border-left: 4px solid #ff5722;
+}
+
+.note.dark-theme, div.seealso.dark-theme {
+    background: #0d47a1;
+    border-left: 4px solid #0288D1;
+}
+
+div.deprecated.dark-theme {
+    background: #B71C1C;
+    border-left: 4px solid #e53935;
+}
+
+span.deprecated.dark-theme {
+    font-weight: bold;
+    font-style: normal!important;
+}
+
+span.changed.dark-theme, span.versionmodified.dark-theme, span.added.dark-theme {
+    font-weight: bold;
+    font-style: normal!important;
+}
+
+div.versionchanged.dark-theme, div.versionadded.dark-theme {
+    background: #424242;
+    border-left: 4px solid #616161;
+}
+
+aside.dark-theme, .mdc-list.dark-theme, .mdc-drawer__title.dark-theme {
+    color: white!important;
+    background: #111111!important;
+}
+
+h6.dark-theme {
+    color: #848484!important;
+}
+
+i.material-icons.dark-theme {
+    color: white!important;
+}
+
+ul.search li.dark-theme {
+    background: #111111!important;
+}
+
+.highlight.dark-theme {
+    border-color: #757575;
+}
+
+.highlighted {
+    background-color: #f57f17;
+}
+
+span.pre {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #e8eaed;
+    border-radius: 4px;
+    padding: 0.1em 0.3em;
+}
+
+span.pre.dark-theme {
+    background-color: #424242;
+}
+
+code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+div.linenodiv pre {
+    padding: 0;
+}
+
+td.code {
+    padding: 0;
+}
