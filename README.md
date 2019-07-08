@@ -2,7 +2,7 @@ Material theme
 ==============
 This is a material based sphinx theme. To use, first install the package:
 
-    pip3 install -U sphinx_theme_material
+    pip3 install -U sphinx-theme-material
 
 Then, in your ``conf.py`` file, change the ``html_theme`` variable to:
 
