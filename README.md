@@ -10,6 +10,14 @@ Then, in your ``conf.py`` file, change the ``html_theme`` variable to:
 
 And re-build your doc. Enjoy!
 
+Theme variables
+---------------
+``theme_primary``
+: The primary color for the theme. Default to #6200ee
+
+``theme_secondary``
+: The secondary color for the theme. Default to #018786
+
 Contribute
 ----------
 This project in under development. If you have ideas or suggestions, please open
