@@ -1,49 +1,43 @@
-function getStyleUse(bundleFilename) {
-  return [
-    {
-      loader: 'file-loader',
-      options: {
-        name: bundleFilename,
-      },
-    },
-    { loader: 'extract-loader' },
-    { loader: 'css-loader' },
-    {
-      loader: 'sass-loader',
-      options: {
-        includePaths: ['./node_modules'],
-        implementation: require('dart-sass'),
-        fiber: require('fibers'),
-      }
-    },
-  ];
-}
+const autoprefixer = require('autoprefixer');
 
-module.exports = [
-  {
-    entry: './style.scss',
+module.exports = {
+    entry: ['./app.scss', './app.js'],
     output: {
-      // This is necessary for webpack to compile, but we never reference this js file.
-      filename: 'style-bundle-login.js',
+        filename: 'build/bundle.js',
     },
     module: {
-      rules: [{
-        test: /style.scss$/,
-        use: getStyleUse('bundle-style.css')
-      }]
+        rules: [
+        {
+            test: /\.scss$/,
+            use: [
+            {
+                loader: 'file-loader',
+                options: {
+                    name: 'build/bundle.css',
+                },
+            },
+            {loader: 'extract-loader'},
+            {loader: 'css-loader'},
+            {loader: 'postcss-loader',
+                options: {
+                    plugins: () => [autoprefixer()],
+                },
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    includePaths: ['./node_modules'],
+                },
+            }
+            ],
+        },
+        {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            query: {
+                presets: ['es2015'],
+            },
+        }
+        ],
     },
-  },
-  {
-    entry: "./style.js",
-    output: {
-      filename: "bundle.js"
-    },
-    module: {
-      loaders: [{
-        test: /style.js$/,
-        loader: 'babel-loader',
-        query: {presets: ['env']}
-      }]
-    },
-  }
-];
+};
