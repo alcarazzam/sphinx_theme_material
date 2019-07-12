@@ -249,6 +249,11 @@ li.toctree-l1.current {
     padding-left: 1em;
 }
 
+li.toctree-l1.current.dark-theme {
+    border-left-color: white;
+    padding-left: 1em;
+}
+
 img {
     max-width: 100%;
     display: block;
