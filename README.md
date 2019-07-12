@@ -10,13 +10,19 @@ Then, in your ``conf.py`` file, change the ``html_theme`` variable to:
 
 And re-build your doc. Enjoy!
 
+Features
+--------
+- Dark theme
+- Responsive layout. Mobile friendly.
+
+
 Theme variables
 ---------------
 ``theme_primary``
-: The primary color for the theme. Default to #6200ee
+: The primary color for the theme. Default to ``#6200ee``
 
 ``theme_secondary``
-: The secondary color for the theme. Default to #018786
+: The secondary color for the theme. Default to ``#018786``
 
 Contribute
 ----------

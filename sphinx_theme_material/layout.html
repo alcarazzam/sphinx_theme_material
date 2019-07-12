@@ -1,13 +1,13 @@
 {#
-    basic/layout.html
-    ~~~~~~~~~~~~~~~~~
+    sphinx-theme-material/layout.html
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    Master layout template for Sphinx themes.
+    Material layout template.
 
-    :copyright: Copyright 2007-2019 by the Sphinx team, see AUTHORS.
-    :license: BSD, see LICENSE for details.
+    :copyright: Copyright 2019 Manuel Alcaraz Zambrano
+    :license: GPLv3+
 #}
-{%- block doctype -%}<!DOCTYPE html>{%- endblock %}
+<!doctype html>
 {%- set reldelim1 = reldelim1 is not defined and ' &#187;' or reldelim1 %}
 {%- set reldelim2 = reldelim2 is not defined and ' |' or reldelim2 %}
 {%- set render_sidebar = (not embedded) and (not theme_nosidebar|tobool) and
@@ -53,29 +53,10 @@
             </a></p>
           {%- endif %}
           {%- endblock %}
-          {%- if sidebars != None %}
             {#- new style sidebar: explicitly include/exclude templates #}
             {%- for sidebartemplate in sidebars %}
             {%- include sidebartemplate %}
             {%- endfor %}
-          {%- else %}
-            {#- old style sidebars: using blocks -- should be deprecated #}
-            {%- block sidebartoc %}
-            {%- include "localtoc.html" %}
-            {%- endblock %}
-            {%- block sidebarrel %}
-            {%- include "relations.html" %}
-            {%- endblock %}
-            {%- block sidebarsourcelink %}
-            {%- include "sourcelink.html" %}
-            {%- endblock %}
-            {%- if customsidebar %}
-            {%- include customsidebar %}
-            {%- endif %}
-            {%- block sidebarsearch %}
-            {%- include "searchbox.html" %}
-            {%- endblock %}
-          {%- endif %}
         </div>
       </div>
       {%- endif %}
@@ -83,10 +64,6 @@
 
 {%- macro script() %}
     <script type="text/javascript" id="documentation_options" data-url_root="{{ pathto('', 1) }}" src="{{ pathto('_static/documentation_options.js', 1) }}" async></script>
-    {%- for js in script_files %}
-        <!-- {{ js }} -->
-        {# js_tag(js) #}
-    {%- endfor %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     
     <script src="{{ pathto('_static/bundle.js', 1) }}" async></script>
@@ -117,24 +94,13 @@
     {%- endfor %}
 {%- endmacro %}
 
-{%- if html_tag %}
-{{ html_tag }}
-{%- else %}
-<html xmlns="http://www.w3.org/1999/xhtml"{% if language is not none %} lang="{{ language }}"{% endif %}>
-{%- endif %}
-  <head>
-    {%- if not html5_doctype and not skip_ua_compatible %}
+<html {% if language is not none %}lang="{{ language }}"{% endif %}>
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    {%- endif %}
-    {%- if use_meta_charset or html5_doctype %}
     <meta charset="{{ encoding }}" />
-    {%- else %}
     <meta http-equiv="Content-Type" content="text/html; charset={{ encoding }}" />
-    {%- endif %}
     {{- metatags }}
-    {%- block htmltitle %}
     <title>{{ title|striptags|e }}{{ titlesuffix }}</title>
-    {%- endblock %}
     {%- block css %}
     {{- css() }}
     {%- endblock %}
@@ -147,12 +113,10 @@
     {%- endif %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {%- if use_opensearch %}
-    <link rel="search" type="application/opensearchdescription+xml"
-          title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}"
-          href="{{ pathto('_static/opensearch.xml', 1) }}"/>
+    <link rel="search" type="application/opensearchdescription+xml" title="{% trans docstitle=docstitle|e %}Search within {{ docstitle }}{% endtrans %}" href="{{ pathto('_static/opensearch.xml', 1) }}" />
     {%- endif %}
     {%- if favicon %}
-    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}"/>
+    <link rel="shortcut icon" href="{{ pathto('_static/' + favicon, 1) }}" />
     {%- endif %}
     {%- endif %}
 {%- block linktags %}
@@ -176,85 +140,94 @@
     {%- endif %}
 {%- endblock %}
 {%- block extrahead %} {% endblock %}
-  </head>
-  {%- block body_tag %}
-  <body class="mdc-typography scroll">
-  {% endblock %}
-
-{#{%- block relbar1 %}{{ relbar() }}{% endblock %}#}
+</head>
+<body class="mdc-typography scroll">
 
 {%- block content %}
 <header class="mdc-top-app-bar app-bar" id="app-bar">
     <div class="mdc-top-app-bar__row">
-      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-        <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-        <span class="mdc-top-app-bar__title"><a href="{{ pathto(master_doc) }}" class="nostylea">{{ shorttitle|e }}</a></span>
-      </section>
-      {%- if hasdoc('search') %}
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <a href="{{ pathto('search') }}" class="material-icons mdc-top-app-bar__action-item" aria-label="{{ _('Search') }}" title="{{ _('Search') }}">search</a>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <span class="mdc-top-app-bar__title"><a href="{{ pathto(master_doc) }}" class="nostylea">{{ shorttitle|e }}</a></span>
         </section>
-      {%- endif %}
+        {%- if hasdoc('search') %}
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <a href="{{ pathto('search') }}" class="material-icons mdc-top-app-bar__action-item" aria-label="{{ _('Search') }}" title="{{ _('Search') }}">search</a>
+            </section>
+        {%- endif %}
     </div>
-  </header>
-  <aside class="mdc-drawer mdc-drawer--modal">
+</header>
+<aside class="mdc-drawer mdc-drawer--modal">
     <div class="mdc-drawer__header">
-         {%- if logo %}
-            <p class="logo"><a href="{{ pathto(master_doc) }}">
-              <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo"/>
-            </a></p>
-          {%- endif %}
+        {%- if logo %}
+            <p class="logo">
+                <a href="{{ pathto(master_doc) }}">
+                    <img class="logo" src="{{ pathto('_static/' + logo, 1) }}" alt="Logo" async />
+                </a>
+            </p>
+        {%- endif %}
         <h3 class="mdc-drawer__title"><a class="nostylea" href="{{ pathto(master_doc) }}">{{ docstitle }}</a></h3>
     </div>
     <div class="mdc-drawer__content">
-      <div class="mdc-list">
-        <h6 class="mdc-list-group__subheader">Contents</h6>
-        {{ toctree() }}
-        
-        <h6 class="mdc-list-group__subheader" style="margin-bottom: 16px;">Options</h6>
-        <div class="mdc-switch">
-            <div class="mdc-switch__track"></div>
-            <div class="mdc-switch__thumb-underlay">
-                <div class="mdc-switch__thumb">
-                    <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch">
+        <div class="mdc-list">
+            <h6 class="mdc-list-group__subheader">Contents</h6>
+            {{ toctree() }}
+            
+            <h6 class="mdc-list-group__subheader" style="margin-bottom: 16px;">{{ _('Navigation') }}</h6>
+            {% if next %}
+            <a href="{{ next.link|e }}" title="{{ next.title }}" class="reference">{{ _('Next') }}</a><br />
+            {% endif %}
+            {% if prev %}
+            <a href="{{ prev.link|e }}" title="{{ prev.title }}" class="reference">{{ _('Previous') }}</a><br />
+            {% endif %}
+            {% if show_source and has_source and sourcename %}
+            <a href="{{ pathto('_sources/' + sourcename, true)|e }}" rel="nofollow" class="reference" title="Go to page source">{{ _('Page source') }}</a><br />
+            {% endif %}
+            
+            <h6 class="mdc-list-group__subheader" style="margin-bottom: 16px;">{{ _('Options') }}</h6>
+            <div class="mdc-switch">
+                <div class="mdc-switch__track"></div>
+                <div class="mdc-switch__thumb-underlay">
+                    <div class="mdc-switch__thumb">
+                        <input type="checkbox" id="basic-switch" class="mdc-switch__native-control" role="switch">
+                    </div>
                 </div>
             </div>
+            <label for="basic-switch" style="padding-left: 16px; cursor: pointer;">{{ _('Dark theme') }}</label>
         </div>
-        <label for="basic-switch" style="padding-left: 16px; cursor: pointer;">{{ _('Dark theme') }}</label>
-      
-      </div>
-      
     </div>
-  </aside>
+</aside>
 
-  <div class="mdc-drawer-scrim"></div>
-  
-  <div class="mdc-drawer-app-content">
+<div class="mdc-drawer-scrim"></div>
+
+<div class="mdc-drawer-app-content">
     <main class="main-content" id="main-content">
-      {%- block document %}
-      <div class="documentwrapper">
-      {%- if render_sidebar %}
-        <div class="bodywrapper">
-      {%- endif %}
-          <div class="body" role="main">
-            {% block body %} {% endblock %}
-          </div>
-      {%- if render_sidebar %}
-        </div>
-      {%- endif %}
-      </div>
-  {%- endblock %}
+        {%- block document %}
+            <div class="documentwrapper">
+                {%- if render_sidebar %}
+                    <div class="bodywrapper">
+                {%- endif %}
+                <div class="body" role="main">
+                    {% block body %}{% endblock %}
+                </div>
+                <div class="footer">
+                    <hr />
+                    {% if show_copyright %}
+                    &copy;{{ copyright }}.<br />
+                    Powered by <a href="https://www.sphinx-doc.org/">Sphinx {{ sphinx_version }}</a>
+                    &amp; <a href="https://github.com/m-alzam/sphinx_theme_material">Material theme {{ material_theme_version }}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {%- if render_sidebar %}
+                </div>
+            {%- endif %}
+            </div>
+        {%- endblock %}
     </main>
-  </div>
-
-  
-      
-  {%- block sidebar1 %} {# possible location for sidebar #} {% endblock %}
-
-    
+</div>
 
 {%- endblock %}
 
-
-  </body>
+</body>
 </html>

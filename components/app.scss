@@ -9,7 +9,6 @@
 
 
 @media (min-width: 660px) {
-    
     /* width */
     .scroll::-webkit-scrollbar {
         width: 16px;
@@ -21,11 +20,6 @@
         height: 8px;
         background: transparent;
     }
-    
-    /* Track */
-    /*::-webkit-scrollbar-track {
-        background: transparent;
-    }*/
     
     .scroll::-webkit-scrollbar-thumb {
         border-bottom: 4px solid white;
@@ -47,9 +41,9 @@
     
     
     /* Handle on hover */
-    /*::-webkit-scrollbar-thumb:hover {
+    ::-webkit-scrollbar-thumb:hover {
         background: #555; 
-    }*/
+    }
 }
 
 body {
@@ -215,16 +209,26 @@ a {
 }
 
 a.headerlink {
-    display: none;
+    opacity: 0;
+    text-decoration: none;
+    color: black;
+    
+    &.dark-theme {
+        color: white;
+    }
+    
+    &:before {
+        content: ' ';
+    }
+}
+
+h1:hover a.headerlink, h2:hover a.headerlink, h3:hover a.headerlink, h4:hover a.headerlink, h5:hover a.headerlink, h6:hover a.headerlink {
+    opacity: 0.5;
 }
 
 a.nostylea, a.nostylea:active, a.nostylea:visited, .mdc-list a {
     text-decoration: none;
     color: inherit!important;
-}
-
-.mdc-list li.toctree-l1, .mdc-list li.toctree-l2, .mdc-list li.toctree-l3 {
-    list-style: none;
 }
 
 a.reference:hover {
@@ -233,6 +237,16 @@ a.reference:hover {
 
 .mdc-list ul {
     padding: 0;
+    list-style: none;
+}
+
+li.current a.reference.internal {
+    font-weight: bold;
+}
+
+li.toctree-l1.current {
+    border-left: 2px solid black;
+    padding-left: 1em;
 }
 
 img {
@@ -384,4 +398,8 @@ div.linenodiv pre {
 
 td.code {
     padding: 0;
+}
+
+div.footer {
+    opacity: 0.6;
 }
