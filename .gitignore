@@ -6,5 +6,4 @@ venv/
 dist/
 components/node_modules/
 components/build/
-tools/
 .idea/
