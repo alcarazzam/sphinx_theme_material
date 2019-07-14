@@ -1,9 +1,0 @@
-__pycache__
-*.pyc
-build/
-*.egg-info/
-venv/
-dist/
-components/node_modules/
-components/build/
-.idea/
