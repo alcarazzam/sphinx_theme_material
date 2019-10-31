@@ -18,11 +18,9 @@ Features
 
 Theme variables
 ---------------
-``theme_primary``
-: The primary color for the theme. Default to ``#6200ee``
+- ``theme_primary``: The primary color for the theme. Default to ``#6200ee``
 
-``theme_secondary``
-: The secondary color for the theme. Default to ``#018786``
+- ``theme_secondary``: The secondary color for the theme. Default to ``#018786``
 
 Contribute
 ----------

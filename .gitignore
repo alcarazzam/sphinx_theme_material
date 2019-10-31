@@ -7,3 +7,4 @@ dist/
 components/node_modules/
 components/build/
 .idea/
+tools/
