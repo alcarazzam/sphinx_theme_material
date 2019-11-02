@@ -228,14 +228,14 @@ a {
 a.headerlink {
   opacity: 0;
   text-decoration: none;
-  color: black;
-
-  &.dark-theme {
-    color: white;
-  }
+  color: var(--mdc-header-link-color, black);
 
   &:before {
     content: ' ';
+  }
+
+  &:hover {
+    color: var(--mdc-link, #1a73e8)
   }
 }
 
@@ -265,11 +265,6 @@ li.toctree-l1.current {
   border-left: 1px solid;
   border-left-color: var(--mdc-theme-text-primary, black);
   padding-left: .6em;
-}
-
-li.toctree-l1.current.dark-theme {
-  border-left-color: white;
-  padding-left: 1em;
 }
 
 img {
@@ -414,4 +409,6 @@ a.title {
   --mdc-highlight-k: #56b571;
 
   --mdc-text-field-border-color: white;
+
+  --mdc-header-link-color: white;
 }
