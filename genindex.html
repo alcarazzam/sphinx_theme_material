@@ -29,6 +29,19 @@
     <script src="_static/underscore.js" async></script>
     <script src="_static/doctools.js" async></script>
     <script src="_static/language_data.js" async></script>
+    
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144197354-3"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', 'UA-144197354-3', {'anonymize_ip': true});
+        </script>
+    
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="index" title="Index" href="#"/>
             <link rel="search" title="Search" href="search.html"/> 
@@ -96,16 +109,28 @@
                         <hr/>
                         
                             &copy;2019, Manuel Alcaraz Zambrano.<br/>
-                            Powered by <a href="https://www.sphinx-doc.org/">Sphinx 2.2.0</a> &amp;
+                            Powered by <a href="https://www.sphinx-doc.org/">Sphinx 2.2.1</a> &amp;
                             <a href="https://github.com/m-alzam/sphinx_theme_material">
                                 Material theme 1.0.0
                             </a>
                         
                     </div>
                         </div>
-                    </div>
+                </div>
         </main>
     </div>
+
+
+    <script async>
+        if (window.performance) {
+            var timeSincePageLoad = Math.round(performance.now());
+            gtag('event', 'timing_complete', {
+                'name': 'load',
+                'value': timeSincePageLoad,
+                'event_category': 'JS Dependencies'
+            });
+        }
+    </script>
 
 </body>
 </html>

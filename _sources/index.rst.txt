@@ -19,13 +19,14 @@ Features
 --------
 - Dark theme
 - Responsive layout. Mobile friendly.
+- Google Analytics support with IP anonymize
 
 
 Theme variables
 ---------------
 - ``theme_primary``: The primary color for the theme. Default to ``#6200ee``
-
 - ``theme_secondary``: The secondary color for the theme. Default to ``#018786``
+- ``analytics_id``: The Google Analytics ID
 
 Contribute
 ----------
