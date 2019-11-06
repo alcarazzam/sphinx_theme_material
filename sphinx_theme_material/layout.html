@@ -73,6 +73,19 @@
     <script src="{{ pathto('_static/underscore.js', 1) }}" async></script>
     <script src="{{ pathto('_static/doctools.js', 1) }}" async></script>
     <script src="{{ pathto('_static/language_data.js', 1) }}" async></script>
+    {% if theme_analytics_id %}
+        <script async src="https://www.googletagmanager.com/gtag/js?id={{ theme_analytics_id }}"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+
+            gtag('js', new Date());
+            gtag('config', '{{ theme_analytics_id }}', {'anonymize_ip': true});
+        </script>
+    {% endif %}
 {%- endmacro %}
 
 {%- macro css() %}
@@ -231,7 +244,7 @@
                     {%- if render_sidebar %}
                         </div>
                     {%- endif %}
-                    </div>
+                </div>
             {%- endblock %}
         </main>
     </div>
@@ -239,5 +252,17 @@
 
 {%- endblock %}
 
+{% if theme_analytics_id %}
+    <script async>
+        if (window.performance) {
+            var timeSincePageLoad = Math.round(performance.now());
+            gtag('event', 'timing_complete', {
+                'name': 'load',
+                'value': timeSincePageLoad,
+                'event_category': 'JS Dependencies'
+            });
+        }
+    </script>
+{% endif %}
 </body>
 </html>
