@@ -3,19 +3,19 @@ import {MDCDrawer} from "@material/drawer";
 import {MDCTextField} from "@material/textfield";
 import {MDCTextFieldIcon} from "@material/textfield/icon";
 import {MDCSwitch} from "@material/switch";
-import Cookie from 'js-cookie';
+//import Cookie from 'js-cookie';
 
 
 function setDarkTheme() {
     //$("*").addClass("dark-theme");
     document.documentElement.setAttribute('data-theme', 'dark');
-    Cookie.set('theme', 'dark');
+    localStorage.setItem("theme", "dark")
 }
 
 function setLightTheme() {
     //$("*").removeClass("dark-theme");
     document.documentElement.setAttribute('data-theme', 'light');
-    Cookie.set('theme', 'light');
+    localStorage.setItem("theme", "light")
 }
 
 const topAppBar = MDCTopAppBar.attachTo(document.getElementById('app-bar'));
@@ -42,7 +42,7 @@ document.querySelector('.mdc-switch').addEventListener("click", (event) => {
 });
 
 $(document).ready(function () {
-    if (Cookie.get("theme") === "dark") {
+    if (localStorage.getItem("theme") === "dark") {
         setDarkTheme();
         darkTheme.checked = true;
     } else {
