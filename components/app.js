@@ -3,17 +3,14 @@ import {MDCDrawer} from "@material/drawer";
 import {MDCTextField} from "@material/textfield";
 import {MDCTextFieldIcon} from "@material/textfield/icon";
 import {MDCSwitch} from "@material/switch";
-//import Cookie from 'js-cookie';
 
 
 function setDarkTheme() {
-    //$("*").addClass("dark-theme");
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem("theme", "dark")
 }
 
 function setLightTheme() {
-    //$("*").removeClass("dark-theme");
     document.documentElement.setAttribute('data-theme', 'light');
     localStorage.setItem("theme", "light")
 }
