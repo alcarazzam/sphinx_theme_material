@@ -5,6 +5,13 @@
 
 Sphinx Material theme
 =====================
+
++-----------------------------------------------------------------+---------------------------------------------------------------------+
+| .. image:: https://img.shields.io/pypi/v/sphinx-theme-material  | .. image:: https://img.shields.io/pypi/status/sphinx-theme-material |
+|    :alt: PyPI                                                   |    :alt: PyPI                                                       |
+|    :align: left                                                 |    :align: left                                                     |
++-----------------------------------------------------------------+---------------------------------------------------------------------+
+
 This is a material based sphinx theme. To use, first install the package::
 
     pip3 install -U sphinx-theme-material
@@ -37,8 +44,6 @@ a issue or send a pull request. Contributions are welcome!
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-
 
 Indices and tables
 ==================
