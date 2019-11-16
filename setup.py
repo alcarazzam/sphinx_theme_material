@@ -1,5 +1,7 @@
 import setuptools
 
+from sphinx_theme_material import __version__
+
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
@@ -8,13 +10,12 @@ setuptools.setup(
     description="A material based sphinx theme",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    version="1.0.0",
+    version=__version__,
     url="https://github.com/m-alzam/sphinx_theme_material",
     author="Manuel Alcaraz Zambrano",
     license="GPLv3+",
     keywords="sphinx theme",
-    #install_requires=["sphinx"],
-    entry_points = {
+    entry_points={
         'sphinx.html_themes': [
             'material = sphinx_theme_material',
         ]

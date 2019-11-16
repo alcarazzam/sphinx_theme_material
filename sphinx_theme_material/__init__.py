@@ -9,4 +9,4 @@ def update_context(app, pagename, templatename, context, doctree):
 
 def setup(app):
     app.connect("html-page-context", update_context)
-    app.add_html_theme('material', path.abspath(path.dirname(__file__)))
+    app.add_html_theme("material", path.abspath(path.dirname(__file__)))
