@@ -1,5 +1,8 @@
 Material theme
 ==============
+
+![PyPI](https://img.shields.io/pypi/v/sphinx-theme-material) ![PyPI - Status](https://img.shields.io/pypi/status/sphinx-theme-material)
+
 This is a material based sphinx theme. To use, first install the package:
 
     pip3 install -U sphinx-theme-material
