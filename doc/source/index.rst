@@ -10,6 +10,7 @@ Sphinx Material theme
 | .. image:: https://img.shields.io/pypi/v/sphinx-theme-material  | .. image:: https://img.shields.io/pypi/status/sphinx-theme-material |
 |    :alt: PyPI                                                   |    :alt: PyPI                                                       |
 |    :align: left                                                 |    :align: left                                                     |
+|    :target: https://pypi.org/project/sphinx-theme-material/     |                                                                     |
 +-----------------------------------------------------------------+---------------------------------------------------------------------+
 
 This is a material based sphinx theme. To use, first install the package::
