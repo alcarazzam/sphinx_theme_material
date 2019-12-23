@@ -8,9 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-      - run: npm ci
-        working-directory: components/
-      - run: npm run build
-        working-directory: components/
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      
+    - name: Build
+      run: |
+        npm ci
+        npm run build
+      working-directory: components/
