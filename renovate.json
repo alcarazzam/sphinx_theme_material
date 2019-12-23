@@ -1,5 +1,8 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "assignees": ["m-alzam"],
+  "commitMessagePrefix": "📌",
+  "labels": ["dependencies"]
 }
