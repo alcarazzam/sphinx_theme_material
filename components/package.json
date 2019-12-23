@@ -21,7 +21,7 @@
     "node-sass": "^4.13.0"
   },
   "devDependencies": {
-    "autoprefixer": "9.6.1",
+    "autoprefixer": "9.7.3",
     "babel-core": "6.26.3",
     "babel-loader": "7.1.5",
     "babel-preset-env": "1.7.0",
