@@ -1,6 +1,7 @@
 Material theme
 ==============
 
+[![CI status](https://github.com/m-alzam/sphinx_theme_material/workflows/CI/badge.svg)](https://github.com/m-alzam/sphinx_theme_material/actions?query=workflow%3ACI)
 [![PyPI](https://img.shields.io/pypi/v/sphinx-theme-material)](https://pypi.org/project/sphinx-theme-material/)
 ![PyPI - Status](https://img.shields.io/pypi/status/sphinx-theme-material)
 
