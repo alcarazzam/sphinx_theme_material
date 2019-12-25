@@ -1,8 +1,9 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    ":preserveSemverRanges"
   ],
   "assignees": ["m-alzam"],
   "commitMessagePrefix": "📌",
-  "labels": ["📌 dependencies"]
+  "labels": ["📌 dependencies"],
 }
